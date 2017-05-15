@@ -9,6 +9,7 @@
             crossorigin="anonymous"></script>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway|Slabo+27px" rel="stylesheet">
     <script src="https://use.fontawesome.com/35c6199759.js"></script>
     <script src="~/js/scripts.js" type="text/javascript"></script>
     <link href="~/css/styles.css" rel="stylesheet" type="text/css" />
@@ -64,7 +65,9 @@
         </div>
     </nav>
     <div>
-        @RenderBody()
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
     </div>
 </body>
 </html>
