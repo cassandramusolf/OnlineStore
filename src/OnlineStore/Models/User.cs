@@ -8,7 +8,14 @@ using System.ComponentModel;
 
 namespace OnlineStore.Models
 {
+    [Table("Users")]
     public class User
     {
+        [Key]
+        public int Id { get; set; }
+        public string Name { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+        public virtual ICollection<OrderedProduct> OrderedProducts { get; set; }
     }
 }

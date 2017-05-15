@@ -8,14 +8,14 @@ using System.ComponentModel;
 
 namespace OnlineStore.Models
 {
-    [Table("Orders")]
-    public class Order
+    [Table("ShoppingCarts")]
+    public class ShoppingCart
     {
         [Key]
         public int Id { get; set; }
+        public int ProductCount { get; set; }
+        public int ProductId { get; set; }
         public static DateTime Now { get; }
-        public decimal PriceTotal { get; set; }
-        public int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual Product Product { get; set; }
     }
 }

@@ -15,12 +15,14 @@ namespace OnlineStore.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
         public string Color { get; set; }
         //public int Inventory { get; set; }
-        public DateTime DateAdded { get; set; }
+        public static DateTime Now { get; }
         public string SubCategory { get; set; }
-        public int CategoryId { get; set; }
         public string Image { get; set; }
+        public int CategoryId { get; set; }
+        public virtual Category Category { get; set; }
+        public virtual ICollection<OrderedProduct> OrderedProducts { get; set; }
     }
 }
