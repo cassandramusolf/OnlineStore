@@ -39,3 +39,7 @@
 .navbar {
     background-color: white;
 }
+
+.navbar-form {
+    float: right;
+}
