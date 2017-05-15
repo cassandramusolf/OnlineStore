@@ -1,0 +1,20 @@
+﻿@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<OnlineStore.Models.Product>
+
+<h1>All Men's Clothing</h1>
+
+<ul>
+    @foreach (var listItem in Model)
+    {
+        if(listItem.CategoryId == 2)
+        {
+
+        <li>@Html.DisplayFor(modelItem => listItem.Name)</li>
+
+        }
+    }
+</ul>

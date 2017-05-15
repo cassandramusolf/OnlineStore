@@ -16,6 +16,21 @@ namespace OnlineStore.Controllers
             return View(db.Products.ToList());
         }
 
+        public IActionResult Mens()
+        {
+            return View(db.Products);
+        }
+
+        public IActionResult Womens()
+        {
+            return View(db.Products.ToList());
+        }
+
+        public IActionResult Accessories()
+        {
+            return View(db.Products);
+        }
+
         public IActionResult Create()
         {
             return View();
