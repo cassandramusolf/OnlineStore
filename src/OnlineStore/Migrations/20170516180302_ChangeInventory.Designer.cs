@@ -8,8 +8,8 @@ using OnlineStore.Models;
 namespace OnlineStore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20170515195041_ChangeDateTime")]
-    partial class ChangeDateTime
+    [Migration("20170516180302_ChangeInventory")]
+    partial class ChangeInventory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,8 @@ namespace OnlineStore.Migrations
 
                     b.Property<decimal>("PriceTotal");
 
+                    b.Property<DateTime>("Today");
+
                     b.Property<int>("UserId");
 
                     b.HasKey("Id");
@@ -43,30 +45,6 @@ namespace OnlineStore.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Orders");
-                });
-
-            modelBuilder.Entity("OnlineStore.Models.OrderedProduct", b =>
-                {
-                    b.Property<int>("ProductId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<int>("OrderId");
-
-                    b.Property<int?>("ProductId1");
-
-                    b.Property<int>("Quantity");
-
-                    b.Property<int?>("UserId");
-
-                    b.HasKey("ProductId");
-
-                    b.HasIndex("OrderId");
-
-                    b.HasIndex("ProductId1");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("OrderedProducts");
                 });
 
             modelBuilder.Entity("OnlineStore.Models.Product", b =>
@@ -82,17 +60,47 @@ namespace OnlineStore.Migrations
 
                     b.Property<string>("Image");
 
+                    b.Property<int>("Inventory");
+
                     b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
 
+                    b.Property<string>("Size");
+
                     b.Property<string>("SubCategory");
+
+                    b.Property<DateTime>("Today");
 
                     b.HasKey("Id");
 
                     b.HasIndex("CategoryId");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("OnlineStore.Models.ProductOrder", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("OrderId");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<int>("Quantity");
+
+                    b.Property<int?>("UserId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("OrderId");
+
+                    b.HasIndex("ProductId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProductOrders");
                 });
 
             modelBuilder.Entity("OnlineStore.Models.ShoppingCart", b =>
@@ -103,6 +111,8 @@ namespace OnlineStore.Migrations
                     b.Property<int>("ProductCount");
 
                     b.Property<int>("ProductId");
+
+                    b.Property<DateTime>("Today");
 
                     b.HasKey("Id");
 
@@ -131,7 +141,15 @@ namespace OnlineStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
-            modelBuilder.Entity("OnlineStore.Models.OrderedProduct", b =>
+            modelBuilder.Entity("OnlineStore.Models.Product", b =>
+                {
+                    b.HasOne("OnlineStore.Models.Category", "Category")
+                        .WithMany("Products")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("OnlineStore.Models.ProductOrder", b =>
                 {
                     b.HasOne("OnlineStore.Models.Order", "Order")
                         .WithMany()
@@ -139,20 +157,13 @@ namespace OnlineStore.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("OnlineStore.Models.Product", "Product")
-                        .WithMany("OrderedProducts")
-                        .HasForeignKey("ProductId1");
+                        .WithMany("ProductOrders")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("OnlineStore.Models.User")
-                        .WithMany("OrderedProducts")
+                        .WithMany("ProductOrders")
                         .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("OnlineStore.Models.Product", b =>
-                {
-                    b.HasOne("OnlineStore.Models.Category", "Category")
-                        .WithMany("Products")
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("OnlineStore.Models.ShoppingCart", b =>

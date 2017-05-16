@@ -32,12 +32,32 @@
         <br />
         <h3>
             @Html.LabelFor(model => model.SubCategory)
-            @Html.TextBoxFor(model => model.SubCategory)
+           @*@Html.TextBoxFor(model => model.SubCategory)*@
+            <select name="SubCategory" id="SubCategory">
+                <option value="Sports Bras">Sports Bras</option>
+                <option value="Tanks">Tanks</option>
+                <option value="Pants">Pants</option>
+                <option value="Short Sleeves">Short Sleeves</option>
+                <option value="Long Sleeves">Long Sleeves</option>
+                <option value="Jackets & Hoodies">Jackets & Hoodies</option>
+                <option value="Sweaters">Sweaters</option>
+                <option value="Swim">Swim</option>
+                <option value="Shorts">Shorts</option>
+                <option value="Yoga Mats">Yoga Mats</option>
+                <option value="Water Bottles">Water Bottles</option>
+                <option value="Bags">Bags</option>
+                <option value="Hats & Headbands">Hats & Headbands</option>
+            </select>
         </h3>
         <br />
         <h3>
             @Html.LabelFor(model => model.Image)
             @Html.TextBoxFor(model => model.Image)
+        </h3>
+        <br />
+        <h3>
+            @Html.LabelFor(model => model.Inventory)
+            @Html.TextBoxFor(model => model.Inventory)
         </h3>
         <br />
         <h3>

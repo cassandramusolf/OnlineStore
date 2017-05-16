@@ -9,10 +9,11 @@ using System.ComponentModel;
 
 namespace OnlineStore.Models
 {
-    [Table("OrderedProducts")]
-    public class OrderedProduct
+    [Table("ProductOrders")]
+    public class ProductOrder
     {
         [Key]
+        public int Id { get; set; }
         public int ProductId { get; set; }
         public int OrderId { get; set; }
         public int Quantity { get; set; }

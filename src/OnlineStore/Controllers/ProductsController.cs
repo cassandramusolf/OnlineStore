@@ -44,5 +44,11 @@ namespace OnlineStore.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public IActionResult Details(int id)
+        {
+            var thisProduct = db.Products.FirstOrDefault(products => products.Id == id);
+            return View(thisProduct);
+        }
     }
 }

@@ -16,6 +16,6 @@ namespace OnlineStore.Models
         public string Name { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual ICollection<OrderedProduct> OrderedProducts { get; set; }
+        public virtual ICollection<ProductOrder> ProductOrders { get; set; }
     }
 }

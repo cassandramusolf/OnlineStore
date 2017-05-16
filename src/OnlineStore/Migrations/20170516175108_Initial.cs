@@ -43,12 +43,14 @@ namespace OnlineStore.Migrations
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CategoryId = table.Column<int>(nullable: false),
                     Color = table.Column<string>(nullable: true),
-                    DateAdded = table.Column<DateTime>(nullable: false),
                     Description = table.Column<string>(nullable: true),
                     Image = table.Column<string>(nullable: true),
+                    Inventory = table.Column<int>(nullable: false),
                     Name = table.Column<string>(nullable: true),
                     Price = table.Column<decimal>(nullable: false),
-                    SubCategory = table.Column<string>(nullable: true)
+                    Size = table.Column<string>(nullable: true),
+                    SubCategory = table.Column<string>(nullable: true),
+                    Today = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -67,8 +69,8 @@ namespace OnlineStore.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateOrdered = table.Column<DateTime>(nullable: false),
                     PriceTotal = table.Column<decimal>(nullable: false),
+                    Today = table.Column<DateTime>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -88,9 +90,9 @@ namespace OnlineStore.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    DateCreated = table.Column<DateTime>(nullable: false),
                     ProductCount = table.Column<int>(nullable: false),
-                    ProductId = table.Column<int>(nullable: false)
+                    ProductId = table.Column<int>(nullable: false),
+                    Today = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -104,33 +106,33 @@ namespace OnlineStore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "OrderedProducts",
+                name: "ProductOrders",
                 columns: table => new
                 {
-                    ProductId = table.Column<int>(nullable: false)
+                    Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     OrderId = table.Column<int>(nullable: false),
-                    ProductId1 = table.Column<int>(nullable: true),
+                    ProductId = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_OrderedProducts", x => x.ProductId);
+                    table.PrimaryKey("PK_ProductOrders", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_OrderedProducts_Orders_OrderId",
+                        name: "FK_ProductOrders_Orders_OrderId",
                         column: x => x.OrderId,
                         principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderedProducts_Products_ProductId1",
-                        column: x => x.ProductId1,
+                        name: "FK_ProductOrders_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_OrderedProducts_Users_UserId",
+                        name: "FK_ProductOrders_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
                         principalColumn: "Id",
@@ -143,24 +145,24 @@ namespace OnlineStore.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_OrderedProducts_OrderId",
-                table: "OrderedProducts",
-                column: "OrderId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderedProducts_ProductId1",
-                table: "OrderedProducts",
-                column: "ProductId1");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OrderedProducts_UserId",
-                table: "OrderedProducts",
-                column: "UserId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Products_CategoryId",
                 table: "Products",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductOrders_OrderId",
+                table: "ProductOrders",
+                column: "OrderId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductOrders_ProductId",
+                table: "ProductOrders",
+                column: "ProductId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductOrders_UserId",
+                table: "ProductOrders",
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ShoppingCarts_ProductId",
@@ -171,7 +173,7 @@ namespace OnlineStore.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "OrderedProducts");
+                name: "ProductOrders");
 
             migrationBuilder.DropTable(
                 name: "ShoppingCarts");

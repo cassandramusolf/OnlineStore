@@ -16,6 +16,7 @@ namespace OnlineStore.Models
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<ProductOrder> ProductOrders { get; set; }
         public virtual DbSet<ShoppingCart> ShoppingCarts { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
