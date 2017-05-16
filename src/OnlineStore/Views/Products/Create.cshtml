@@ -42,7 +42,11 @@
         <br />
         <h3>
             @Html.LabelFor(model => model.Category)
-            @Html.TextBoxFor(model => model.CategoryId)
+            <select name="CategoryId" id="CategoryId">
+                <option value="1">Women</option>
+                <option value="2">Men</option>
+                <option value="3">Accessories</option>
+            </select>
         </h3>
         <br />
         <input class="btn btn-lg btn-default" type="submit" value="ADD ITEM" />
