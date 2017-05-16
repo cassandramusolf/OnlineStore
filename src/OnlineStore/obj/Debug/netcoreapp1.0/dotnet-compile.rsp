@@ -206,6 +206,8 @@ C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170515185845_In
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170515185845_Initial.Designer.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170515195041_ChangeDateTime.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170515195041_ChangeDateTime.Designer.cs
+C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170515233628_ChangeDate.cs
+C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170515233628_ChangeDate.Designer.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Models\ApplicationDbContext.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Models\Category.cs

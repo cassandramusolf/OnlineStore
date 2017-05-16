@@ -18,7 +18,7 @@ namespace OnlineStore.Models
         public decimal Price { get; set; }
         public string Color { get; set; }
         //public int Inventory { get; set; }
-        public static DateTime Now { get; }
+        public DateTime Today { get; set; } = DateTime.Now;
         public string SubCategory { get; set; }
         public string Image { get; set; }
         public int CategoryId { get; set; }

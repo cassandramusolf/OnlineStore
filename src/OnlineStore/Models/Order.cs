@@ -13,7 +13,7 @@ namespace OnlineStore.Models
     {
         [Key]
         public int Id { get; set; }
-        public static DateTime Now { get; }
+        public DateTime Today { get; set; } = DateTime.Now;
         public decimal PriceTotal { get; set; }
         public int UserId { get; set; }
         public virtual User User { get; set; }

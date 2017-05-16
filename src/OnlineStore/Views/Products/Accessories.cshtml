@@ -5,22 +5,21 @@
 
 @model IEnumerable<OnlineStore.Models.Product>
 
-<h1>All Women's Clothing</h1>
+<h1>All Accessories</h1>
 
 <div class="container-fluid">
     @foreach (var listItem in Model)
     {
-        if (listItem.CategoryId == 1)
+        if (listItem.CategoryId == 3)
         {
 
-            <div class="col-sm-4">
+            <div class="col-md-4">
                 <div class="card">
                     <a href="@Url.Action("Details", new { id = listItem.Id })">
-                        <img src="@Html.DisplayFor(modelProduct => listItem.Image)" alt="Clothing" style="width:100%">
+                        <img src="@Html.DisplayFor(modelProduct => listItem.Image)" alt="Accessories" style="width:100%">
                         <div class="card-block">
                             <h3 class="card-title text-center">@Html.DisplayFor(modelItem => listItem.Name)</h3>
                             <h3 class="card-text text-center">$@Html.DisplayFor(modelItem => listItem.Price)</h3>
-                            <h4>@Html.DisplayFor(modelItem => listItem.Today)</h4>
                         </div>
                     </a>
                 </div>

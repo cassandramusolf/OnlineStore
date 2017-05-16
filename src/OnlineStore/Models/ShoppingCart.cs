@@ -15,7 +15,7 @@ namespace OnlineStore.Models
         public int Id { get; set; }
         public int ProductCount { get; set; }
         public int ProductId { get; set; }
-        public static DateTime Now { get; }
+        public DateTime Today { get; set; } = DateTime.Now;
         public virtual Product Product { get; set; }
     }
 }
