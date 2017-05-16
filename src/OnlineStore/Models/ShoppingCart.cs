@@ -17,5 +17,6 @@ namespace OnlineStore.Models
         public int ProductId { get; set; }
         public DateTime Today { get; set; } = DateTime.Now;
         public virtual Product Product { get; set; }
+        public decimal CartTotal { get; set; }
     }
 }

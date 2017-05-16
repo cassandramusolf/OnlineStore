@@ -207,6 +207,8 @@ C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516175108_In
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516175108_Initial.Designer.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516180302_ChangeInventory.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516180302_ChangeInventory.Designer.cs
+C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516210436_AddCartTotal.cs
+C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516210436_AddCartTotal.Designer.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\ApplicationDbContextModelSnapshot.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Models\ApplicationDbContext.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Models\Category.cs

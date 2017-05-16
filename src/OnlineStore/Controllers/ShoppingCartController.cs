@@ -30,6 +30,7 @@ namespace OnlineStore.Controllers
                 {
                     ProductId = product.Id,
                     ProductCount = 1,
+                    CartTotal = product.Price,
                     Today = DateTime.Now
                 };
             
@@ -39,10 +40,23 @@ namespace OnlineStore.Controllers
             else
             {
                 cartItem.ProductCount++;
+                cartItem.CartTotal += product.Price;
             }
             db.SaveChanges();
-            return View();
+            return View("ShoppingCart");
         }
 
+
+        //public IActionResult TotalCart(Product product)
+        //{
+        //    var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.ProductId == product.Id);
+
+        //    if(cartItem.ProductCount > 1)
+        //    {
+        //        product.Price *= cartItem.ProductCount;
+        //    }
+
+        //    return View(product.Price);
+        //}
     }
 }
