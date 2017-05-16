@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using OnlineStore.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace OnlineStore.Controllers
 {
@@ -14,10 +15,11 @@ namespace OnlineStore.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            //ViewBag.Product.Name = db.Products;
+            return View(db.ShoppingCarts.Include(items => items.Product).ToList());
         }
 
-        public void AddToCart(Product product)
+        public IActionResult AddToCart(Product product)
         {
 
             var cartItem = db.ShoppingCarts.SingleOrDefault(c => c.ProductId == product.Id);
@@ -39,6 +41,8 @@ namespace OnlineStore.Controllers
                 cartItem.ProductCount++;
             }
             db.SaveChanges();
+            return View();
         }
+
     }
 }

@@ -4,12 +4,25 @@
 }
 
 @model IEnumerable<OnlineStore.Models.ShoppingCart>
+@{ 
+   var list = ViewBag.Products as IEnumerable<OnlineStore.Models.Product>;
+}
 
 @foreach (var listItem in Model) {
+    <h2>@Html.DisplayFor(modelItem => listItem.Id)</h2>
     <h2>@Html.DisplayFor(modelItem => listItem.ProductId)</h2>
 
-    if (listItem.ProductCount == 0)
-    {
-        <h3>Your shopping cart is empty!</h3>
-    }
+
+
+    <div class="col-sm-4">
+        <div class="card">
+            <a href="@Url.Action("Details", "Products", new { id = listItem.ProductId })">
+                <img src="@Html.DisplayFor(modelProduct => listItem.Product.Image)" alt="Clothing" style="width:100%">
+                <div class="card-block">
+                    <h3 class="card-title text-center">@Html.DisplayFor(modelItem => listItem.Product.Name)</h3>
+                    <h3 class="card-text text-center">$@Html.DisplayFor(modelItem => listItem.Product.Price)</h3>
+                </div>
+            </a>
+        </div>
+    </div>
 }
