@@ -202,6 +202,7 @@ C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Program.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Startup.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Controllers\HomeController.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Controllers\ProductsController.cs
+C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Controllers\ShoppingCartController.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516175108_Initial.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516175108_Initial.Designer.cs
 C:\Users\Cassie\Desktop\OnlineStore\src\OnlineStore\Migrations\20170516180302_ChangeInventory.cs
